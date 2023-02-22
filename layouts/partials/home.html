@@ -5,28 +5,24 @@
 {{ $glossary := index site.Data.glossary site.Language.Lang }}
 
 <section class="section sec1" id="home">
-    <div class="left-header">
-        <div class="h-shape"></div>
-        <img src="{{$data.image}}" class="image">
-    </div>
-    <div class="right-header">
-        <h1 class="name">{{ $data.title | safeHTML }}</h1>
-        <p>{{ $data.shortDescription }}</p>
-        <div class="btn-container-group">
-          <div class="btn-container">
-            <a href="#product"  data-id="product">
-                <span class="btn-text">{{$glossary.cta1}}</span>
-                <span class="btn-icon"><i class="fas fa-angle-down"></i></span>
-                <i class="bg"></i>
-            </a>
-          </div>
-          <div class="btn-container">
-            <a href="https://github.com/RoneoOrg/hugo-remix-one-click-netlify-cms#readme"  data-id="product" target="blank">
-                <span class="btn-text">{{$glossary.cta2}}</span>
-                <span class="btn-icon btn-icon-deploy"><i class="fas fa-rocket"></i></span>
-                <i class="bg"></i>
-            </a>
-          </div>
-        </div>
-    </div>
+<!--JS路徑-->
+<script src="/js/splide/dist/js/splide.min.js"></script>
+
+<!--選擇要使用的CSS主題-->
+<link rel="stylesheet" href="/js/splide/dist/css/themes/splide-skyblue.min.css">
+
+<!--建立Splide。data-splide設定參數為播放到最後就退回第一張，並每次顯示一張圖片。-->
+<div class="splide" role="group" aria-label="Splide" data-splide='{"type":"loop","perPage":1,"autoplay":"true"}'>
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide"><img src=https://files.vntranslog.com/vntranslog_slider1.webp></li>
+			<li class="splide__slide"><img src=https://files.vntranslog.com/vntranslog_slider2.webp></li>
+			<li class="splide__slide"><img src=https://files.vntranslog.com/vntranslog_slider3.webp></li>
+		</ul>
+  </div>
+</div>
+
+<script>
+  new Splide( '.splide' ).mount();
+</script>
 </section>
